@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>BugNet - {% block title %}Welcome{% endblock %}</title>
+</head>
+<body class="bg-gray-100">
+
+    <nav class="bg-gray-800 p-4 text-white shadow-md">
+        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center">
+
+            <a href="{% url 'home' %}" class="text-2xl font-bold mb-4 md:mb-0 hover:text-gray-300">
+                BugNet 🐞
+            </a>
+
+            <div class="flex flex-col md:flex-row md:space-x-6 space-y-2 md:space-y-0 text-center">
+                <a href="{% url 'home' %}" class="hover:text-gray-300 px-3 py-2 rounded-md">Home</a>
+
+                <a href="{% url 'bug_create' %}" class="hover:text-gray-300 px-3 py-2 rounded-md">Add Bug</a>
+
+                <a href="{% url 'admin:index' %}" class="bg-blue-600 hover:bg-blue-700 px-3 py-2 rounded-md font-medium">Admin</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto p-6">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+</body>
+</html>
